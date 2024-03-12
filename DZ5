@@ -1,0 +1,97 @@
+//Домашнее задание №5
+//Задача 1. Сколько зерен на доске?
+
+unsigned long long int put_grain(int n)
+{
+unsigned long long res = 1;
+    for (int i = 2; i <= n; i++)
+        res *= 2;
+return res;
+}
+
+int main()
+{
+int n;
+    setlocale(LC_ALL,"Russian");
+    printf("Введите колличество зерен:\n ");
+    scanf("%d", &n);
+    printf("Награда мудреца составила = %llu, в переводе на деньги =\)", put_grain(n));
+    return 0;
+}
+//____________________________________________________________
+
+//Задача 2. НОД
+int nod(int a, int b)
+{
+    while (a != b)
+{
+        if (a > b)
+{
+            a -= b;
+        }
+	else
+{
+            b -= a;
+        }
+    }
+    return a;
+}
+
+int main(int argc, char **argv)
+{
+    int a, b;
+    setlocale(LC_ALL,"Russian");
+    printf("Введите два целых положительных числа: ");
+    scanf("%d %d", &a, &b);
+    printf("НОД = %d", nod(a, b));
+    return 0;
+}
+//______________________________
+//Задача 3. Сумма цифр равна произведению
+
+char* chet(int a)
+{
+    int x1= a/100000;
+    int x2=(a/10000)%10;
+    int x3=(a/1000)%10;
+    int x4=(a/100)%10;
+    int x5=(a/10)%10;
+    int x6=a%10;
+    int s=x1+x2+x3+x4+x5+x6;
+    char *str;
+    if (s%2==0)
+        str="YES";
+    else
+        str="NO";
+    return str;
+
+}
+int main(int argc, char **argv)
+{
+    setlocale(LC_ALL,"Russian");
+    int n;
+    printf("Введите число:\n");
+    scanf("%d",&n);
+    printf(chet(n));
+
+    getch();
+}
+//________________________________________
+//Задача 4. Сумма от 1 до N
+int sum(int n)
+{
+int s=0;
+for (int i=1;i<=n;i++)
+s=s+i;
+return s;
+}
+int main(int argc, char **argv)
+{
+setlocale(LC_ALL,"Russian");
+int n;
+printf("Введите целое число:\n ");
+scanf("%d",&n);
+printf("Сумма чисел %d = %d\n",n,sum(n));
+getch();
+}
+
